@@ -9,8 +9,6 @@ import { Collegue } from '../models';
 export class ListeColleguesComponent implements OnInit {
 
   @Input() listeCollegues: Collegue[]
-  @Input() val1: number
-  @Input() val2: number
 
   constructor() { }
 

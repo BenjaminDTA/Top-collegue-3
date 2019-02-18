@@ -17,11 +17,11 @@ export class CollegueComponent implements OnInit {
   traiter(param: number) {
     if (param == 1) {
       this.collegue.score += 1;
-      this.message = "Un fervent des vrai Valars " + Avis.AIMER;
+      this.message = "Gentil ! " + Avis.AIMER;
     }
     else {
       this.collegue.score -= 1;
-      this.message = "Sale race inférieure, je te déteste : " + Avis.DETESTER;
+      this.message = "Méchant ! : " + Avis.DETESTER;
     }
     this.testScore();
   }
