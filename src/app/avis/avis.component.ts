@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Avis } from '../models';
 
 @Component({
   selector: 'app-avis',
@@ -7,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class AvisComponent implements OnInit {
 
-  @Output() change: EventEmitter<number> = new EventEmitter<number>();
+  @Output() change: EventEmitter<Avis> = new EventEmitter<Avis>();
   @Input() btn: boolean;
   @Input() btn2: boolean;
 
@@ -19,11 +20,11 @@ export class AvisComponent implements OnInit {
   }
 
   CLickJAime() {
-    this.change.emit(1)
+    this.change.emit(Avis.AIMER)
   }
 
   CLickJAimePas() {
-    this.change.emit(-1)
+    this.change.emit(Avis.DETESTER)
 
   }
 

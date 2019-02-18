@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Collegue } from '../models';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-accueil',
@@ -8,12 +9,16 @@ import { Collegue } from '../models';
 })
 export class AccueilComponent implements OnInit {
 
-  @Input() listeColleguesAccueil: Collegue[]
+  listeColleguesAccueil: Collegue[] = this._dataServ.lister();
 
 
-  constructor() { }
+  constructor(private _dataServ: DataService) { }
 
   ngOnInit() {
   }
+  refresh(): void {
+    window.location.reload();
+  }
+
 
 }
