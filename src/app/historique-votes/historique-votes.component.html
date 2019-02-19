@@ -16,14 +16,14 @@
 </div>
 -->
 <h1 id="titre">Historique des votes</h1>
-<div *ngFor=" let obj of listeVotes">
+<div *ngFor=" let obj of listeVotes; index as nb">
   <div class="row">
     <div class="col">
       <img src={{obj.collegue.photoUrl}} class="img-thumbnail img-responsive" />
       {{obj.collegue.pseudo | uppercase}}<br>
       {{obj.collegue.pseudo | uppercase}} a desormais un score de {{obj.collegue.score}} !
       <br>
-      <button id="supr" type="buttton" class="btn btn-danger btn-sm">Supprimer</button>
+      <button id="supr" type="buttton" (click)="supprimerVote(nb)" class="btn btn-danger btn-sm">Supprimer</button>
     </div>
 
   </div>

@@ -10,6 +10,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ScorePipe } from './pipes/score.pipe';
 import { HistoriqueVotesComponent } from './historique-votes/historique-votes.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { VoteDoneComponent } from './vote-done/vote-done.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ListeColleguesComponent,
     AccueilComponent,
     ScorePipe,
-    HistoriqueVotesComponent
+    HistoriqueVotesComponent,
+    VoteDoneComponent
   ],
   imports: [
     BrowserModule,
