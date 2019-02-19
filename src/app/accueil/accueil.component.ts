@@ -9,11 +9,13 @@ import { DataService } from '../services/data.service';
 })
 export class AccueilComponent implements OnInit {
 
-  listeColleguesAccueil: Collegue[] = this._dataServ.lister();
-  listeVotesAccueil: Vote[] = this._dataServ.listerVotes();
+  listeColleguesAccueil: Collegue[]
 
 
-  constructor(private _dataServ: DataService) { }
+  constructor(private _dataServ: DataService) {
+    this._dataServ.lister().subscribe(
+      valeur => this.listeColleguesAccueil = valeur)
+  }
 
   ngOnInit() {
   }

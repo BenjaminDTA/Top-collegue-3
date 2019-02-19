@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Collegue, Avis, Vote } from '../models';
+import { Observable, of, Subject } from 'rxjs';
+import { stringify } from '@angular/core/src/util';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+
+  private subject = new Subject<Vote>();
 
   listeCollegues: Collegue[] = [
     {
@@ -56,28 +61,33 @@ export class DataService {
 
   constructor() { }
 
-  lister(): Collegue[] {
-    return this.listeCollegues;
+  lister(): Observable<Collegue[]> {
+    return of(this.listeCollegues);
   }
 
-  donnerUnAvis(collegue: Collegue, avis: Avis): Collegue {
+  donnerUnAvis(collegue: Collegue, avis: Avis): Observable<Collegue> {
+    //emet le vote
     if (avis === Avis.AIMER) {
       collegue.score += 1;
     } else if (avis === Avis.DETESTER) {
       collegue.score -= 1;
     }
-    return collegue
+    let collegue2 = { ...collegue };
+    let aVotee = { collegue: collegue2, avis }
+    this.subject.next(aVotee);
+    return of(collegue2)
   }
-
-  listeVotes: Vote[] = [
-    { collegue: this.listeCollegues[0], avis: Avis.AIMER },
-    { collegue: this.listeCollegues[1], avis: Avis.DETESTER },
-    { collegue: this.listeCollegues[2], avis: Avis.DETESTER },
-  ]
+  /*pas utile puisque dynamique avec les Observables
+    listeVotes: Vote[] = [
+      { collegue: this.listeCollegues[0], avis: Avis.AIMER },
+      { collegue: this.listeCollegues[1], avis: Avis.DETESTER },
+      { collegue: this.listeCollegues[2], avis: Avis.DETESTER },
+    ]*/
 
   s
-  listerVotes(): Vote[] {
-    return this.listeVotes;
+  listerVotes(): Observable<Vote> {
+    //renvoi la partie observable de l'evenement sous forme d'observable de vote
+    return this.subject.asObservable();
   }
 
 
