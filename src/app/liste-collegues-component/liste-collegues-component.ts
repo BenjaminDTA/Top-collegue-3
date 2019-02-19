@@ -9,6 +9,7 @@ import { Collegue } from '../models';
 export class ListeColleguesComponent implements OnInit {
 
   @Input() listeCollegues: Collegue[]
+  p: number = 1;
 
   constructor() { }
 

@@ -1,9 +1,31 @@
-<div class="histo">
-  <div id="Affich" *ngFor=" let obj of listeVotes">
-    <!--AFFICHAGE-->
-    <img src={{obj.collegue.photoUrl}} /><br>
-    <div id="name">{{obj.collegue.pseudo}}</div>
-    <p>{{obj.collegue.pseudo}} a desormais un score de {{obj.collegue.score}} ! <br></p>
-    <button id="supr" type="buttton" class="btn btn-danger">Supprimer</button>
+<!--AFFICHAGE
+<div>
+  <h1 id="titre">Historique</h1>
+  <div class="container" *ngFor=" let obj of listeVotes">
+    <div class="row">
+      <div class="col-4">
+        <img src={{obj.collegue.photoUrl}} class="img-thumbnail img-responsive" />
+      </div>
+      <div class="col-4">
+        {{obj.collegue.pseudo | uppercase}}<br>
+        {{obj.collegue.pseudo | uppercase}} a desormais un score de {{obj.collegue.score}} !
+        <button id="supr" type="buttton" class="btn btn-danger">Supprimer</button>
+      </div>
+    </div>
   </div>
+</div>
+-->
+<h1 id="titre">Historique des votes</h1>
+<div *ngFor=" let obj of listeVotes">
+  <div class="row">
+    <div class="col">
+      <img src={{obj.collegue.photoUrl}} class="img-thumbnail img-responsive" />
+      {{obj.collegue.pseudo | uppercase}}<br>
+      {{obj.collegue.pseudo | uppercase}} a desormais un score de {{obj.collegue.score}} !
+      <br>
+      <button id="supr" type="buttton" class="btn btn-danger btn-sm">Supprimer</button>
+    </div>
+
+  </div>
+
 </div>

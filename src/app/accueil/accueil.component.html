@@ -1,4 +1,10 @@
 <button type="button" class="btn btn-primary" (click)="refresh()">Rafraichir la page</button>
+<div class="row">
+    <div class="col-sm-8">
+        <app-liste-collegues [listeCollegues]="listeColleguesAccueil"></app-liste-collegues>
+    </div>
 
-<app-liste-collegues [listeCollegues]="listeColleguesAccueil"></app-liste-collegues>
-<app-historique-votes [listeVotes]="listeVotesAccueil"></app-historique-votes>
+    <div class="col-sm-4">
+        <app-historique-votes [listeVotes]="listeVotesAccueil"></app-historique-votes>
+    </div>
+</div>

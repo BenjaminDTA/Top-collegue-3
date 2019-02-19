@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { BonjourComponent } from './bonjour/bonjour.component';
 import { BonjourAvecPrenomComponent } from './bonjour-avec-prenom/bonjour-avec-prenom.component';
@@ -10,6 +9,7 @@ import { ListeColleguesComponent } from './liste-collegues-component/liste-colle
 import { AccueilComponent } from './accueil/accueil.component';
 import { ScorePipe } from './pipes/score.pipe';
 import { HistoriqueVotesComponent } from './historique-votes/historique-votes.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -24,9 +24,12 @@ import { HistoriqueVotesComponent } from './historique-votes/historique-votes.co
     HistoriqueVotesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgxPaginationModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }

@@ -1,0 +1,12 @@
+.Affich{
+    display: flex;
+}
+.img-responsive{
+    width: 10rem; 
+    height: 10rem;
+    display: block;
+}
+.row{
+    border-width: auto;
+    border-style: double;
+}

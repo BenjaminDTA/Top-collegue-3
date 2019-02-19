@@ -1,5 +1,10 @@
 <div class="row">
-  <div class="col-4" *ngFor=" let obj of listeCollegues">
+  <div class="col-4" *ngFor=" let obj of listeCollegues  | paginate: { itemsPerPage: 3, currentPage: p }">
     <app-collegue [collegue]=obj></app-collegue>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>

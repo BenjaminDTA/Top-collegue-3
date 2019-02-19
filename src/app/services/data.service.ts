@@ -80,4 +80,5 @@ export class DataService {
     return this.listeVotes;
   }
 
+
 }
