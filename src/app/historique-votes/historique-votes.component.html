@@ -1,21 +1,4 @@
-<!--AFFICHAGE
-<div>
-  <h1 id="titre">Historique</h1>
-  <div class="container" *ngFor=" let obj of listeVotes">
-    <div class="row">
-      <div class="col-4">
-        <img src={{obj.collegue.photoUrl}} class="img-thumbnail img-responsive" />
-      </div>
-      <div class="col-4">
-        {{obj.collegue.pseudo | uppercase}}<br>
-        {{obj.collegue.pseudo | uppercase}} a desormais un score de {{obj.collegue.score}} !
-        <button id="supr" type="buttton" class="btn btn-danger">Supprimer</button>
-      </div>
-    </div>
-  </div>
-</div>
--->
-<h1 id="titre">Historique des votes</h1>
+<h1 class="titre">Historique des votes</h1>
 <div *ngFor=" let obj of listeVotes; index as nb">
   <div class="row">
     <div class="col">
