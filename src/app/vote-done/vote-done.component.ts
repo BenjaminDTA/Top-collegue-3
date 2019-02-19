@@ -8,18 +8,20 @@ import { DataService } from '../services/data.service';
 })
 export class VoteDoneComponent implements OnInit {
   msg = ""
-  cpt: number = 0
+  cpt: number
   constructor(private _serv: DataService) {
     this._serv.listerVotes().subscribe(value => {
       this.cpt += 1;
       this.message()
     })
+    this.cpt = +sessionStorage.getItem('nombre')
   }
 
   ngOnInit() {
     this.message()
   }
   message() {
-    this.msg = "Le nombre de vote effectué est de : " + this.cpt
+    this.msg = "Le nombre de vote effectué est de : " + this.cpt;
+    sessionStorage.setItem("nombre", String(this.cpt));
   }
 }
