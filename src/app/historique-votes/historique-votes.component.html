@@ -1,0 +1,9 @@
+<div class="histo">
+  <div id="Affich" *ngFor=" let obj of listeVotes">
+    <!--AFFICHAGE-->
+    <img src={{obj.collegue.photoUrl}} /><br>
+    <div id="name">{{obj.collegue.pseudo}}</div>
+    <p>{{obj.collegue.pseudo}} a desormais un score de {{obj.collegue.score}} ! <br></p>
+    <button id="supr" type="buttton" class="btn btn-danger">Supprimer</button>
+  </div>
+</div>

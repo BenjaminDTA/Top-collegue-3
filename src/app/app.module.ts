@@ -9,6 +9,7 @@ import { CollegueComponent } from './collegue/collegue.component';
 import { ListeColleguesComponent } from './liste-collegues-component/liste-collegues-component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ScorePipe } from './pipes/score.pipe';
+import { HistoriqueVotesComponent } from './historique-votes/historique-votes.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ScorePipe } from './pipes/score.pipe';
     CollegueComponent,
     ListeColleguesComponent,
     AccueilComponent,
-    ScorePipe
+    ScorePipe,
+    HistoriqueVotesComponent
   ],
   imports: [
     BrowserModule

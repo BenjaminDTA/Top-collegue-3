@@ -17,6 +17,7 @@ export class CollegueComponent implements OnInit {
 
   traiter(param: Avis) {
     this._dataServ.donnerUnAvis(this.collegue, param)
+    this.testScore();
   }
 
   constructor(private _dataServ: DataService) {
@@ -28,11 +29,11 @@ export class CollegueComponent implements OnInit {
 
 
   testScore() {
-    if (this.collegue.score >= 1000) {
+    if (this.collegue.score >= 10) {
       this.disabledBtn1 = true
     } else {
       this.disabledBtn1 = false
-      if (this.collegue.score <= -1000) {
+      if (this.collegue.score <= -10) {
         this.disabledBtn2 = true
       } else {
         this.disabledBtn2 = false

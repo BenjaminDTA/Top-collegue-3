@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Collegue, Avis } from '../models';
+import { Collegue, Avis, Vote } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +67,17 @@ export class DataService {
       collegue.score -= 1;
     }
     return collegue
+  }
+
+  listeVotes: Vote[] = [
+    { collegue: this.listeCollegues[0], avis: Avis.AIMER },
+    { collegue: this.listeCollegues[1], avis: Avis.DETESTER },
+    { collegue: this.listeCollegues[2], avis: Avis.DETESTER },
+  ]
+
+  s
+  listerVotes(): Vote[] {
+    return this.listeVotes;
   }
 
 }
