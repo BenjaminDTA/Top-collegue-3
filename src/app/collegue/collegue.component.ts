@@ -14,7 +14,7 @@ export class CollegueComponent implements OnInit {
   disabledBtn1 = false;
   disabledBtn2 = false;
 
-
+  //Traiter() permet de mettre a jour le collegue avec le collegue a jour de la requete
   traiter(param: Avis) {
     this._dataServ.donnerUnAvis(this.collegue, param)
       .subscribe(
@@ -32,11 +32,11 @@ export class CollegueComponent implements OnInit {
 
 
   testScore() {
-    if (this.collegue.score >= 10) {
+    if (this.collegue.score >= 100) {
       this.disabledBtn1 = true
     } else {
       this.disabledBtn1 = false
-      if (this.collegue.score <= -10) {
+      if (this.collegue.score <= -100) {
         this.disabledBtn2 = true
       } else {
         this.disabledBtn2 = false

@@ -19,9 +19,7 @@ export class DataService {
   private subject = new Subject<Vote>();
   constructor(private _http: HttpClient) { }
 
-  listeCollegues: Collegue[] = [
-
-  ]
+  listeCollegues: Collegue[] = []
 
 
   lister(): Observable<Collegue[]> {
@@ -38,6 +36,15 @@ export class DataService {
 
       httpOptions)
   }
+
+  listerVotes(): Observable<Vote> {
+    //renvoi la partie observable de l'evenement sous forme d'observable de vote
+    return this.subject.asObservable();
+  }
+
+
+
+
   // if (avis === Avis.AIMER) {
   //   collegue.score += 10;
   // } else if (avis === Avis.DETESTER) {
@@ -50,10 +57,7 @@ export class DataService {
 
 
 
-  listerVotes(): Observable<Vote> {
-    //renvoi la partie observable de l'evenement sous forme d'observable de vote
-    return this.subject.asObservable();
-  }
+
 
 }
 // {

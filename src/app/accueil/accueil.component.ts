@@ -20,7 +20,8 @@ export class AccueilComponent implements OnInit {
   ngOnInit() {
   }
   refresh(): void {
-    window.location.reload();
+    this._dataServ.lister().subscribe(
+      valeur => this.listeColleguesAccueil = valeur)
   }
 
 
