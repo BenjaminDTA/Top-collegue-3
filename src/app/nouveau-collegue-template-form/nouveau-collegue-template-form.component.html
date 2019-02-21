@@ -1,0 +1,9 @@
+<form>
+  Matricule :<br>
+  <input type="text" name="Matricule" #champMatricule="ngModel" [(ngModel)]="unePersonne.matricule" /><br>
+  Pseudo : <br>
+  <input type="text" name="Pseudo" #champPseudo="ngModel" [(ngModel)]="unePersonne.pseudo" required minlength="2" /><br>
+  URL image : <br>
+  <input type="url" name="url" #champUrl="ngModel" [(ngModel)]="unePersonne.url" /><br>
+  <button type="submit">Ajouter</button>
+</form>>

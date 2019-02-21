@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Collegue, Avis, Vote } from '../models';
+import { Collegue, Avis, Vote, Personne } from '../models';
 import { Observable, of, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment'
@@ -35,6 +35,10 @@ export class DataService {
       },
 
       httpOptions)
+    // .pipe(collegueServeur => {
+    //   let aVotee = { collegue: collegueServeur, avis }
+    //   this.subject.next(aVotee)
+    // })
   }
 
   listerVotes(): Observable<Vote> {
@@ -42,6 +46,11 @@ export class DataService {
     return this.subject.asObservable();
   }
 
+  recupPersonne(unePersonne: Personne): Observable<Object> {
+    return this._http.post(environment.backendUrl, {
+      "matricule": unePersonne
+    }, httpOptions)
+  }
 
 
 
