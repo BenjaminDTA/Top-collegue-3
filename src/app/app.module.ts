@@ -11,6 +11,8 @@ import { ScorePipe } from './pipes/score.pipe';
 import { HistoriqueVotesComponent } from './historique-votes/historique-votes.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { VoteDoneComponent } from './vote-done/vote-done.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { VoteDoneComponent } from './vote-done/vote-done.component';
   ],
   imports: [
     BrowserModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    HttpClientModule
 
   ],
   providers: [],
