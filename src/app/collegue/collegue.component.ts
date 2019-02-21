@@ -17,6 +17,9 @@ export class CollegueComponent implements OnInit {
 
   traiter(param: Avis) {
     this._dataServ.donnerUnAvis(this.collegue, param)
+      .subscribe(
+        collegueServeur => this.collegue = collegueServeur
+      )
     this.testScore();
   }
 
