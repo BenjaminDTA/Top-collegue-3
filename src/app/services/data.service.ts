@@ -4,6 +4,7 @@ import { Observable, of, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment'
 import { HttpHeaders } from "@angular/common/http";
+import { tap } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -21,9 +22,22 @@ export class DataService {
 
   listeCollegues: Collegue[] = []
 
+  refresh() {
+
+    console.log("longeur du tableau" + this.listeCollegues.length)
+    this.listeCollegues = []
+    return this.lister();
+  }
 
   lister(): Observable<Collegue[]> {
-    return this._http.get<Collegue[]>(environment.backendUrl);
+    console.log("fekjfefejfejfefejfej")
+    return this.listeCollegues.length > 0 ?
+      of(this.listeCollegues) :
+      this._http.get<Collegue[]>(environment.backendUrl)
+        .pipe( // comme peek avec les streams Java 8 
+          tap(tableau => this.listeCollegues = tableau)
+        )
+
   }
 
   donnerUnAvis(collegue: Collegue, avis: Avis): Observable<Collegue> {

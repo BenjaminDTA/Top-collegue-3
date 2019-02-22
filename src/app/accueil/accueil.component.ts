@@ -16,15 +16,19 @@ export class AccueilComponent implements OnInit {
     this._dataServ.lister().subscribe(
       valeur => {
         this.listeColleguesAccueil = valeur
-        console.log("tesst " + valeur[0].photoUrl)
+
       })
   }
 
   ngOnInit() {
   }
   refresh(): void {
-    this._dataServ.lister().subscribe(
-      valeur => this.listeColleguesAccueil = valeur)
+    this._dataServ.refresh().subscribe(
+      valeur => {
+        this.listeColleguesAccueil = valeur
+
+      })
+    console.log("etesteeterrefee")
   }
 
 

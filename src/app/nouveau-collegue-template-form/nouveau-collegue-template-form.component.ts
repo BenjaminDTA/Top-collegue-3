@@ -21,6 +21,7 @@ export class NouveauCollegueTemplateFormComponent implements OnInit {
   ngOnInit() {
   }
   ajouter() {
+    console.log(this.unePersonne)
     let personne = this._srv.ajoutCollegue(this.unePersonne).subscribe();
   }
 }
