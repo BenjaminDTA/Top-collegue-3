@@ -22,7 +22,7 @@ export class HistoriqueVotesComponent implements OnInit {
       this.listeVotes.splice(nb, 1)
     }
   }
-  viderHisto(nb: number) {
+  viderHisto() {
     this.listeVotes = []
   }
 }
