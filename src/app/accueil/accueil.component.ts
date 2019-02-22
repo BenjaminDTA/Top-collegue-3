@@ -14,7 +14,10 @@ export class AccueilComponent implements OnInit {
 
   constructor(private _dataServ: DataService) {
     this._dataServ.lister().subscribe(
-      valeur => this.listeColleguesAccueil = valeur)
+      valeur => {
+        this.listeColleguesAccueil = valeur
+        console.log("tesst " + valeur[0].photoUrl)
+      })
   }
 
   ngOnInit() {

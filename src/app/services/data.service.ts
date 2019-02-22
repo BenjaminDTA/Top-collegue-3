@@ -35,10 +35,6 @@ export class DataService {
       },
 
       httpOptions)
-    // .pipe(collegueServeur => {
-    //   let aVotee = { collegue: collegueServeur, avis }
-    //   this.subject.next(aVotee)
-    // })
   }
 
   listerVotes(): Observable<Vote> {
@@ -46,13 +42,11 @@ export class DataService {
     return this.subject.asObservable();
   }
 
-  recupPersonne(unePersonne: Personne): Observable<Object> {
-    return this._http.post(environment.backendUrl, {
-      "matricule": unePersonne
-    }, httpOptions)
+  ajoutCollegue(unePersonne: Personne): Observable<Object> {
+    return this._http.post(environment.backendUrl, unePersonne, httpOptions)
   }
 
-
+}
 
   // if (avis === Avis.AIMER) {
   //   collegue.score += 10;
@@ -64,11 +58,6 @@ export class DataService {
   // this.subject.next(aVotee);
   // return of(collegue2)
 
-
-
-
-
-}
 // {
 //   pseudo: "Beber",
 //   score: 0,

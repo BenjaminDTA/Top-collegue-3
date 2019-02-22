@@ -24,6 +24,7 @@ export class CollegueComponent implements OnInit {
   }
 
   constructor(private _dataServ: DataService) {
+
   }
 
   ngOnInit() {
@@ -32,6 +33,7 @@ export class CollegueComponent implements OnInit {
 
 
   testScore() {
+    console.log(this.collegue.pseudo)
     if (this.collegue.score >= 100) {
       this.disabledBtn1 = true
     } else {
