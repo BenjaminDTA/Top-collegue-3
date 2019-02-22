@@ -13,7 +13,7 @@ export class HistoriqueVotesComponent implements OnInit {
   constructor(private _srv: DataService) { }
 
   ngOnInit() {
-    this._srv.listerVotes().subscribe(value => this.listeVotes.push(value))
+    this._srv.listerVotes().subscribe(value => this.listeVotes.push(value));
   }
   supprimerVote(nb: number) {
     if (nb === 0) {
@@ -22,4 +22,8 @@ export class HistoriqueVotesComponent implements OnInit {
       this.listeVotes.splice(nb, 1)
     }
   }
+  viderHisto(nb: number) {
+    this.listeVotes = []
+  }
 }
+

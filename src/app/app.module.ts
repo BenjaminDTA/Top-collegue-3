@@ -14,6 +14,11 @@ import { VoteDoneComponent } from './vote-done/vote-done.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NouveauCollegueTemplateFormComponent } from './nouveau-collegue-template-form/nouveau-collegue-template-form.component';
 import { FormsModule } from '@angular/forms';
+import { MenuComponent } from './menu/menu.component';
+import { RouterModule } from '@angular/router';
+import { ROUTES } from './app.routes'
+
+
 
 @NgModule({
   declarations: [
@@ -27,13 +32,15 @@ import { FormsModule } from '@angular/forms';
     ScorePipe,
     HistoriqueVotesComponent,
     VoteDoneComponent,
-    NouveauCollegueTemplateFormComponent
+    NouveauCollegueTemplateFormComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     NgxPaginationModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(ROUTES)
 
   ],
   providers: [],

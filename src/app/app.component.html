@@ -1,3 +1,23 @@
 <!-- <app-collegue [collegue]="unCollegueTest"></app-collegue> -->
 <!-- <app-liste-collegues [listeCollegues]="listeCollegueTest"></app-liste-collegues> -->
-<app-accueil></app-accueil>
+<!--<app-accueil></app-accueil>-->
+
+
+<header>
+</header>
+<nav>
+    <a routerLink="/accueil">Accueil</a>
+
+    <a routerLink="/formulaire">Formulaire</a>
+</nav>
+<main>
+    <!-- le composant défini dans la route courante va être inséré à cet endroit -->
+
+    <!-- au regard de la configuration précédente, 
+       /page1 va insérer le composant AComponent à cet emplacement
+       /page2 a insérer le composant BComponent à cet emplacement
+   -->
+    <router-outlet></router-outlet>
+</main>
+<footer>
+</footer>

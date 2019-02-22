@@ -43,12 +43,16 @@ export class DataService {
   donnerUnAvis(collegue: Collegue, avis: Avis): Observable<Collegue> {
     //emet le vote
 
-    return this._http.patch<Collegue>(environment.backendUrl + '/' + collegue.pseudo,
+    let collegue2 = this._http.patch<Collegue>(environment.backendUrl + '/' + collegue.pseudo,
       {
         "action": avis
       },
 
       httpOptions)
+    return collegue2.pipe(tap(collegueServeur => {
+      let aVotee = { collegue: collegueServeur, avis }
+      this.subject.next(aVotee)
+    }))
   }
 
   listerVotes(): Observable<Vote> {
